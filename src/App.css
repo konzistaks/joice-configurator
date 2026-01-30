@@ -1,16 +1,44 @@
-/* joice brand colors - extracted from logo */
+/* joice brand colors - from official brand toolkit */
 :root {
-  --joice-teal: #1a4a4a;
-  --joice-teal-light: #2a6a6a;
-  --joice-teal-dark: #0d2f2f;
+  /* Primary - dark teal (for texts and main elements) */
+  --joice-primary: #134e4a;
+  /* Primary Chromatic (for elemental overlap) */
+  --joice-primary-light: #1a6b6b;
+  /* Secondary - light mint (for backgrounds) */
+  --joice-secondary: #c4ddd6;
+  /* Accent - coral (for highlights) */
+  --joice-accent: #f28b6d;
+
   --white: #ffffff;
-  --off-white: #f8f9fa;
+  --off-white: #f8faf9;
   --gray-100: #f1f3f4;
   --gray-200: #e8eaed;
   --gray-300: #dadce0;
   --gray-500: #9aa0a6;
   --gray-700: #5f6368;
   --gray-900: #202124;
+}
+
+/* Ubuntu font */
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
 * {
@@ -20,7 +48,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: 'Ubuntu', system-ui, -apple-system, sans-serif;
   background-color: var(--off-white);
   color: var(--gray-900);
   line-height: 1.5;
@@ -35,14 +63,14 @@ body {
 /* Header */
 .header {
   background: var(--white);
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 4px solid var(--joice-accent);
 }
 
 .logo {
-  height: 48px;
+  height: 70px;
   width: auto;
 }
 
@@ -70,8 +98,8 @@ body {
 }
 
 .step-number {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--gray-300);
   color: var(--gray-700);
@@ -79,16 +107,16 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .progress-step.active .step-number {
-  background: var(--joice-teal);
+  background: var(--joice-primary);
   color: var(--white);
 }
 
 .progress-step.completed .step-number {
-  background: var(--joice-teal-light);
+  background: var(--joice-primary-light);
   color: var(--white);
 }
 
@@ -99,7 +127,8 @@ body {
 }
 
 .progress-step.active .step-label {
-  color: var(--joice-teal);
+  color: var(--joice-primary);
+  font-weight: 700;
 }
 
 /* Main Content */
@@ -118,7 +147,8 @@ body {
 
 .step-header h2 {
   font-size: 1.75rem;
-  color: var(--joice-teal);
+  font-weight: 700;
+  color: var(--joice-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -129,47 +159,52 @@ body {
 /* Items Grid */
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
   margin-bottom: 2rem;
 }
 
 .item-card {
   background: var(--white);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .item-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .item-card.selected {
-  border-color: var(--joice-teal);
-  box-shadow: 0 4px 16px rgba(26, 74, 74, 0.2);
+  border-color: var(--joice-accent);
+  box-shadow: 0 6px 20px rgba(242, 139, 109, 0.25);
 }
 
 .item-image {
-  height: 160px;
-  background: var(--gray-100);
+  height: 180px;
+  background: var(--white);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .item-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 0.5rem;
 }
 
 .placeholder-image {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+  background: linear-gradient(135deg, var(--joice-secondary) 0%, var(--gray-100) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,27 +218,66 @@ body {
   background: var(--gray-300);
 }
 
+/* Lokalheld badge */
+.lokalheld-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--joice-secondary);
+  color: var(--joice-primary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Vegan badge */
+.vegan-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #d4edda;
+  color: #155724;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .item-content {
   padding: 1rem;
 }
 
 .item-content h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--gray-900);
   margin-bottom: 0.5rem;
 }
 
 .item-description {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--gray-700);
   margin-bottom: 0.75rem;
   line-height: 1.4;
 }
 
 .item-price {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--joice-teal);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--joice-primary);
+}
+
+.item-price::before {
+  content: '+';
+}
+
+.item-price::after {
+  content: ' \20AC';
 }
 
 /* Navigation */
@@ -213,7 +287,7 @@ body {
   align-items: center;
   padding: 1.5rem;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
@@ -223,19 +297,25 @@ body {
 }
 
 .running-total strong {
-  color: var(--joice-teal);
-  font-size: 1.25rem;
+  color: var(--joice-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.running-total strong::after {
+  content: ' \20AC';
 }
 
 /* Buttons */
 .btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
   border: none;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .btn:disabled {
@@ -244,12 +324,13 @@ body {
 }
 
 .btn-primary {
-  background: var(--joice-teal);
+  background: var(--joice-accent);
   color: var(--white);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--joice-teal-dark);
+  background: #e07a5c;
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -268,14 +349,15 @@ body {
 
 .summary h2 {
   text-align: center;
-  color: var(--joice-teal);
+  color: var(--joice-primary);
   margin-bottom: 2rem;
   font-size: 1.75rem;
+  font-weight: 700;
 }
 
 .summary-items {
   background: var(--white);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -295,11 +377,11 @@ body {
 }
 
 .summary-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--gray-500);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .summary-name {
@@ -308,12 +390,12 @@ body {
 }
 
 .summary-price {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--gray-700);
 }
 
-.summary-price::before {
-  content: '\20AC';
+.summary-price::after {
+  content: ' \20AC';
 }
 
 .summary-total {
@@ -321,20 +403,20 @@ body {
   justify-content: space-between;
   padding-top: 1rem;
   margin-top: 0.5rem;
-  border-top: 2px solid var(--joice-teal);
+  border-top: 3px solid var(--joice-accent);
   font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--joice-teal);
+  font-weight: 700;
+  color: var(--joice-primary);
 }
 
-.summary-total span:last-child::before {
-  content: '\20AC';
+.summary-total span:last-child::after {
+  content: ' \20AC';
 }
 
 /* Nutrition Info */
 .nutrition-info {
   background: var(--white);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -343,10 +425,11 @@ body {
 .nutrition-info h3 {
   text-align: center;
   color: var(--gray-700);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .nutrition-grid {
@@ -362,15 +445,16 @@ body {
 .nutrition-value {
   display: block;
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--joice-teal);
+  font-weight: 700;
+  color: var(--joice-primary);
 }
 
 .nutrition-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--gray-500);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
 .summary .btn-primary {
@@ -391,7 +475,12 @@ body {
   }
 
   .items-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .item-image {
+    height: 140px;
   }
 
   .navigation {
@@ -409,5 +498,11 @@ body {
 
   .nutrition-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .items-grid {
+    grid-template-columns: 1fr;
   }
 }

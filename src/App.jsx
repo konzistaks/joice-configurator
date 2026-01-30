@@ -3,8 +3,8 @@ import { bases, options, condiments } from './data/menuData';
 import './App.css';
 
 const STEPS = [
-  { key: 'base', title: 'Choose Your Base', subtitle: 'Start with a vegetable mix or wholegrain' },
-  { key: 'option', title: 'Add Your Protein', subtitle: 'Pick a fish, meat, or vegetarian option' },
+  { key: 'base', title: 'Choose Your Base', subtitle: 'Pick a wholegrain or veggie mix foundation' },
+  { key: 'option', title: 'Add Your Protein', subtitle: 'Select fish, meat, or plant-based' },
   { key: 'condiment', title: 'Top It Off', subtitle: 'Finish with a sauce or crunch' },
 ];
 
@@ -21,16 +21,8 @@ function App() {
       case 0:
         return bases;
       case 1:
-        // If base has compatibleOptions defined, filter; otherwise show all
-        if (selections.base?.compatibleOptions) {
-          return options.filter((o) => selections.base.compatibleOptions.includes(o.id));
-        }
         return options;
       case 2:
-        // If option has compatibleCondiments defined, filter; otherwise show all
-        if (selections.option?.compatibleCondiments) {
-          return condiments.filter((c) => selections.option.compatibleCondiments.includes(c.id));
-        }
         return condiments;
       default:
         return [];
@@ -124,11 +116,13 @@ function App() {
                   ) : (
                     <div className="placeholder-image" />
                   )}
+                  {item.isLokalheld && <span className="lokalheld-badge">Lokalheld</span>}
+                  {item.isVegan && <span className="vegan-badge">Vegan</span>}
                 </div>
                 <div className="item-content">
                   <h3>{item.name}</h3>
                   <p className="item-description">{item.description}</p>
-                  <div className="item-price">+{item.price.toFixed(2)}</div>
+                  <div className="item-price">{item.price.toFixed(2)}</div>
                 </div>
               </div>
             ))}
@@ -152,7 +146,7 @@ function App() {
         </main>
       ) : (
         <main className="main summary">
-          <h2>Your Meal</h2>
+          <h2>Your joice Meal</h2>
 
           <div className="summary-items">
             <div className="summary-item">
