@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { bases, options, condiments } from './data/menuData';
+import { bases, options, condiments, suppliers } from './data/menuData';
 import './App.css';
 
 const STEPS = [
@@ -15,6 +15,7 @@ function App() {
     option: null,
     condiment: null,
   });
+  const [modalSupplier, setModalSupplier] = useState(null);
 
   const getItemsForStep = (stepIndex) => {
     switch (stepIndex) {
@@ -49,6 +50,17 @@ function App() {
   const handleReset = () => {
     setCurrentStep(0);
     setSelections({ base: null, option: null, condiment: null });
+  };
+
+  const handleLokalheldClick = (e, supplierId) => {
+    e.stopPropagation();
+    if (supplierId && suppliers[supplierId]) {
+      setModalSupplier(suppliers[supplierId]);
+    }
+  };
+
+  const closeModal = () => {
+    setModalSupplier(null);
   };
 
   const calculateTotal = () => {
@@ -116,7 +128,14 @@ function App() {
                   ) : (
                     <div className="placeholder-image" />
                   )}
-                  {item.isLokalheld && <span className="lokalheld-badge">Lokalheld</span>}
+                  {item.isLokalheld && (
+                    <button
+                      className="lokalheld-badge"
+                      onClick={(e) => handleLokalheldClick(e, item.supplier)}
+                    >
+                      Lokalheld
+                    </button>
+                  )}
                   {item.isVegan && <span className="vegan-badge">Vegan</span>}
                 </div>
                 <div className="item-content">
@@ -196,6 +215,27 @@ function App() {
             Create Another Meal
           </button>
         </main>
+      )}
+
+      {/* Lokalheld Supplier Modal */}
+      {modalSupplier && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              &times;
+            </button>
+            <div className="modal-image">
+              <img src={modalSupplier.image} alt={modalSupplier.name} />
+            </div>
+            <div className="modal-content">
+              <div className="modal-badge">Lokalheld Partner</div>
+              <h2>{modalSupplier.name}</h2>
+              <p className="modal-location">{modalSupplier.location}</p>
+              <p className="modal-specialty">{modalSupplier.specialty}</p>
+              <p className="modal-description">{modalSupplier.description}</p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

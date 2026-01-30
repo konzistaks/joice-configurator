@@ -1,6 +1,42 @@
 // joice meal configurator - real product data
 // Prices from joice product presentation (September 2022)
 
+// Lokalheld supplier information
+export const suppliers = {
+  mueritzfischer: {
+    id: 'mueritzfischer',
+    name: 'Müritzfischer',
+    location: 'Mecklenburg Lake District, Germany',
+    description: 'For over 100 years, the Müritzfischer cooperative has been sustainably fishing the pristine waters of the Mecklenburg Lake District. Their zander is wild-caught using traditional methods that protect the delicate lake ecosystem.',
+    image: 'https://images.unsplash.com/photo-1545450660-3378a7f3a364?w=600&h=400&fit=crop',
+    specialty: 'Wild-caught freshwater fish',
+  },
+  kikok: {
+    id: 'kikok',
+    name: 'Kikok',
+    location: 'Brandenburg, Germany',
+    description: 'Kikok raises free-range chickens in the rolling hills of Brandenburg. Their birds roam freely on organic pastures, resulting in meat that is tender, flavorful, and ethically produced.',
+    image: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=600&h=400&fit=crop',
+    specialty: 'Free-range poultry',
+  },
+  treibertofu: {
+    id: 'treibertofu',
+    name: 'Treiber Tofu',
+    location: 'Baden-Württemberg, Germany',
+    description: 'A family-run tofu manufactory using only organic German soybeans. Treiber has perfected the art of tofu-making over three generations, creating products with exceptional texture and taste.',
+    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop',
+    specialty: 'Artisan organic tofu',
+  },
+  goodcrop: {
+    id: 'goodcrop',
+    name: 'GoodCrop',
+    location: 'Brandenburg, Germany',
+    description: 'GoodCrop partners with local farmers to grow ancient grain varieties using regenerative agriculture. Their red grain blend (Rotkorn) is stone-milled fresh for maximum nutrition and flavor.',
+    image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&h=400&fit=crop',
+    specialty: 'Heritage grains & seeds',
+  },
+};
+
 // Step 1: BASES - Wholegrains & Wheat OR Veggie Mixes
 export const bases = [
   // Wholegrains & Wheat (€4.75)
@@ -34,6 +70,7 @@ export const bases = [
     category: 'wholegrain',
     isVegan: true,
     isLokalheld: true,
+    supplier: 'goodcrop',
   },
   {
     id: 'base-walnut-quinoa',
@@ -120,6 +157,7 @@ export const options = [
     nutrition: { calories: 180, protein: 32, carbs: 0, fat: 5 },
     category: 'fish',
     isLokalheld: true,
+    supplier: 'mueritzfischer',
   },
   {
     id: 'option-tarragon-zander',
@@ -130,6 +168,7 @@ export const options = [
     nutrition: { calories: 185, protein: 33, carbs: 0, fat: 5 },
     category: 'fish',
     isLokalheld: true,
+    supplier: 'mueritzfischer',
   },
   // Meat (Lokalheld - from Kikok)
   {
@@ -141,6 +180,7 @@ export const options = [
     nutrition: { calories: 200, protein: 35, carbs: 0, fat: 6 },
     category: 'meat',
     isLokalheld: true,
+    supplier: 'kikok',
   },
   // Plant-based proteins
   {
@@ -163,6 +203,7 @@ export const options = [
     category: 'vegan',
     isVegan: true,
     isLokalheld: true,
+    supplier: 'treibertofu',
   },
 ];
 
