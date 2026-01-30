@@ -1,0 +1,142 @@
+// Sample menu data - replace with actual joice products
+// Pairing logic: if compatibleWith is defined, only those IDs are allowed in the next step
+
+export const bases = [
+  {
+    id: 'base-1',
+    name: 'Mediterranean Veggie Mix',
+    description: 'Zucchini, bell peppers, eggplant & cherry tomatoes with herbs de Provence',
+    price: 4.50,
+    image: null, // placeholder
+    nutrition: { calories: 120, protein: 4, carbs: 18, fat: 5 },
+    compatibleOptions: null, // null means all options are compatible
+  },
+  {
+    id: 'base-2',
+    name: 'Quinoa & Greens',
+    description: 'Fluffy quinoa with spinach, kale & a hint of lemon',
+    price: 5.00,
+    image: null,
+    nutrition: { calories: 180, protein: 7, carbs: 28, fat: 4 },
+    compatibleOptions: null,
+  },
+  {
+    id: 'base-3',
+    name: 'Sweet Potato Mash',
+    description: 'Creamy sweet potato with a touch of cinnamon & nutmeg',
+    price: 4.00,
+    image: null,
+    nutrition: { calories: 150, protein: 3, carbs: 32, fat: 2 },
+    compatibleOptions: null,
+  },
+  {
+    id: 'base-4',
+    name: 'Wild Rice Pilaf',
+    description: 'Nutty wild rice blend with mushrooms & thyme',
+    price: 5.50,
+    image: null,
+    nutrition: { calories: 200, protein: 6, carbs: 38, fat: 3 },
+    compatibleOptions: null,
+  },
+];
+
+export const options = [
+  {
+    id: 'option-1',
+    name: 'Herb Salmon',
+    description: 'Atlantic salmon fillet with dill, parsley & lemon zest',
+    price: 6.50,
+    image: null,
+    nutrition: { calories: 220, protein: 25, carbs: 0, fat: 12 },
+    category: 'fish',
+    compatibleCondiments: null,
+  },
+  {
+    id: 'option-2',
+    name: 'Rosemary Chicken',
+    description: 'Tender chicken breast with rosemary, garlic & olive oil',
+    price: 5.00,
+    image: null,
+    nutrition: { calories: 180, protein: 28, carbs: 0, fat: 7 },
+    category: 'meat',
+    compatibleCondiments: null,
+  },
+  {
+    id: 'option-3',
+    name: 'Garlic Butter Shrimp',
+    description: 'Juicy shrimp in garlic herb butter',
+    price: 7.00,
+    image: null,
+    nutrition: { calories: 160, protein: 22, carbs: 2, fat: 8 },
+    category: 'fish',
+    compatibleCondiments: null,
+  },
+  {
+    id: 'option-4',
+    name: 'Tender Beef Strips',
+    description: 'Grass-fed beef strips with black pepper & sea salt',
+    price: 7.50,
+    image: null,
+    nutrition: { calories: 240, protein: 30, carbs: 0, fat: 14 },
+    category: 'meat',
+    compatibleCondiments: null,
+  },
+  {
+    id: 'option-5',
+    name: 'Sesame Tofu',
+    description: 'Crispy tofu cubes with sesame & ginger',
+    price: 4.00,
+    image: null,
+    nutrition: { calories: 140, protein: 12, carbs: 6, fat: 9 },
+    category: 'vegetarian',
+    compatibleCondiments: null,
+  },
+];
+
+export const condiments = [
+  {
+    id: 'condiment-1',
+    name: 'Lemon Tahini Drizzle',
+    description: 'Creamy tahini with fresh lemon & garlic',
+    price: 1.50,
+    image: null,
+    nutrition: { calories: 80, protein: 2, carbs: 4, fat: 7 },
+    type: 'sauce',
+  },
+  {
+    id: 'condiment-2',
+    name: 'Crispy Shallots',
+    description: 'Golden fried shallots for extra crunch',
+    price: 1.00,
+    image: null,
+    nutrition: { calories: 45, protein: 1, carbs: 5, fat: 3 },
+    type: 'crunch',
+  },
+  {
+    id: 'condiment-3',
+    name: 'Chimichurri',
+    description: 'Fresh parsley, oregano, garlic & red wine vinegar',
+    price: 1.50,
+    image: null,
+    nutrition: { calories: 60, protein: 1, carbs: 2, fat: 6 },
+    type: 'sauce',
+  },
+  {
+    id: 'condiment-4',
+    name: 'Toasted Seeds Mix',
+    description: 'Pumpkin, sunflower & sesame seeds',
+    price: 1.00,
+    image: null,
+    nutrition: { calories: 70, protein: 3, carbs: 3, fat: 6 },
+    type: 'crunch',
+  },
+  {
+    id: 'condiment-5',
+    name: 'Spicy Sriracha Mayo',
+    description: 'Creamy mayo with a sriracha kick',
+    price: 1.00,
+    image: null,
+    nutrition: { calories: 90, protein: 0, carbs: 2, fat: 9 },
+    type: 'sauce',
+  },
+];
